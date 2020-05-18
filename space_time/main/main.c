@@ -4,9 +4,8 @@
 #include "esp_system.h"
 #include "esp_spi_flash.h"
 #include "driver/i2c.h"
-#include "include/i2c_ht16k33.h"
-
-//#include "components/i2c_ht16k33/i2c_ht16k33.h"
+#include "include/i2c_cmd.h"
+#include "include/ht16k33.h"
 
 uint16_t displayBuffer[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
@@ -50,12 +49,7 @@ void app_main(void)
         writeBuffer(I2C_ADDR_7SEG, displayBuffer);
         vTaskDelay(5000 / portTICK_PERIOD_MS);
 
-        writeDigit(displayBuffer, 0xA, 1);
-        writeDigit(displayBuffer, 0xA, 4);
-        displayBuffer[1] = 0b0110111;
-        displayBuffer[3] = 0b0110111;
-        writeBuffer(I2C_ADDR_7SEG, displayBuffer);
-        vTaskDelay(5000 / portTICK_PERIOD_MS);
+        
 
         //printf("Entered loop successfully!");
     }
