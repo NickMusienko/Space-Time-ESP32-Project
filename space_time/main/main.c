@@ -7,8 +7,7 @@
 #include "include/i2c_cmd.h"
 #include "include/ht16k33.h"
 
-uint16_t displayBuffer[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-
+extern uint16_t displayBuffer[8];
 
 void app_main(void)
 {
@@ -23,29 +22,28 @@ void app_main(void)
     while (true)
     {
         vTaskDelay(1000 / portTICK_PERIOD_MS);
-        // writeNumDec(displayBuffer, 1234);
-        // writeBuffer(I2C_ADDR_7SEG, displayBuffer);
-        // vTaskDelay(1000 / portTICK_PERIOD_MS);
-        // writeNumHex(displayBuffer, 0xabcd);
-        // writeBuffer(I2C_ADDR_7SEG, displayBuffer);
-        // vTaskDelay(1000 / portTICK_PERIOD_MS);
-        // writeNumASCII(displayBuffer, "0053");
-        // writeBuffer(I2C_ADDR_7SEG, displayBuffer);
-        // vTaskDelay(1000 / portTICK_PERIOD_MS);
-        // writeNumHex(displayBuffer, 0xbeef);
-        // writeBuffer(I2C_ADDR_7SEG, displayBuffer);
-        // vTaskDelay(1000 / portTICK_PERIOD_MS);
-
-        // toggleColon(displayBuffer, 0b101);
-        // writeBuffer(I2C_ADDR_7SEG, displayBuffer);
-        // vTaskDelay(1000 / portTICK_PERIOD_MS);
-        // toggleColon(displayBuffer, 0b010);
-        // writeBuffer(I2C_ADDR_7SEG, displayBuffer);
-        // vTaskDelay(1000 / portTICK_PERIOD_MS);
-        // toggleColon(displayBuffer, 0b000);
-        // writeBuffer(I2C_ADDR_7SEG, displayBuffer);
-        // vTaskDelay(1000 / portTICK_PERIOD_MS);
+        writeNumDec(displayBuffer, 1235);
+        writeBuffer(I2C_ADDR_7SEG, displayBuffer);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        writeNumHex(displayBuffer, 0xabcd);
+        writeBuffer(I2C_ADDR_7SEG, displayBuffer);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        writeNumASCII(displayBuffer, "0053", false);
+        writeBuffer(I2C_ADDR_7SEG, displayBuffer);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
         writeNumHex(displayBuffer, 0xbeef);
+        writeBuffer(I2C_ADDR_7SEG, displayBuffer);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        toggleColon(displayBuffer, 0b101);
+        writeBuffer(I2C_ADDR_7SEG, displayBuffer);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        toggleColon(displayBuffer, 0b010);
+        writeBuffer(I2C_ADDR_7SEG, displayBuffer);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        toggleColon(displayBuffer, 0b000);
+        writeBuffer(I2C_ADDR_7SEG, displayBuffer);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
+        writeNumHex(displayBuffer, 0xdead);
         writeBuffer(I2C_ADDR_7SEG, displayBuffer);
         vTaskDelay(5000 / portTICK_PERIOD_MS);
 

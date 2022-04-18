@@ -6,6 +6,8 @@
 #include "esp_system.h"
 #include "driver/i2c.h"
 
+uint16_t displayBuffer[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+
 static const char numbertable[] = {
   0x3F, /* 0 */
   0x06, /* 1 */
@@ -113,14 +115,14 @@ void writeNumHex(uint16_t* buffer, uint16_t d) {
    buffer = you need this
    str = input string (only looks at first four characters, so formatting should not matter) */
 
-void writeNumASCII(uint16_t* buffer, char* str) {
+void writeNumASCII(uint16_t* buffer, char* str, bool time) {
  int parts[4];
  int i;
  for (i = 0; i < 4; i++) {
   parts[i] = str[i] & 0x0F;
  }
  
- if (parts[0] == 0 && parts[1] == 0) {    // 12:00am correction
+ if (time == true && parts[0] == 0 && parts[1] == 0) {    // 12:00am correction
    parts[0] = 1;
    parts[1] = 2;
  } else if (parts[0] == 0) {

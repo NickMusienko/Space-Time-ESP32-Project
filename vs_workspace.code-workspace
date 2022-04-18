@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "space_time"
+		}
+	],
+	"settings": {
+		"idf.portWin": "COM3"
+	}
+}
