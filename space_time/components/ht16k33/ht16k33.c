@@ -157,6 +157,6 @@ esp_err_t ht16k33_init(uint8_t slave_addr)
 {
     esp_err_t ret = i2c_master_tx_byte(slave_addr, 0x21);
     if (ret == ESP_OK) setBlinkRate(slave_addr, 0);
-    if (ret == ESP_OK) setBrightness(slave_addr, 15);
+    if (ret == ESP_OK) setBrightness(slave_addr, 8);
     return ret;
 }

@@ -11,9 +11,9 @@ esp_err_t i2c_init(void)
     i2c_config_t conf;
     conf.mode = I2C_MODE_MASTER;
     conf.sda_io_num = I2C_SDA_GPIO;
-    conf.sda_pullup_en = GPIO_PULLUP_DISABLE;
+    conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
     conf.scl_io_num = I2C_SCL_GPIO;
-    conf.scl_pullup_en = GPIO_PULLUP_DISABLE;
+    conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
     conf.master.clk_speed = I2C_FREQ_HZ;
     if (i2c_param_config(i2c_master_port, &conf) == ESP_OK) return i2c_driver_install(i2c_master_port, conf.mode, 0, 0, 0);
     else return i2c_param_config(i2c_master_port, &conf);

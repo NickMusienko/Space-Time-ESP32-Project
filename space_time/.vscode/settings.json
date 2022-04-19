@@ -1,4 +1,12 @@
 {
     "idf.espIdfPathWin": "C:\\Users\\Nick\\esp\\esp-idf",
-    "idf.portWin": "COM5"
+    "idf.portWin": "COM3",
+    "idf.adapterTargetName": "esp32",
+    "idf.flashType": "UART",
+    "files.associations": {
+        "future": "c",
+        "type_traits": "c",
+        "xtree": "c",
+        "ht16k33.h": "c"
+    }
 }

@@ -1,4 +1,4 @@
 idf_component_register(
-    SRCS "main.c"
+    SRCS "nmea_parser.c" "main.c"
     INCLUDE_DIRS ""
 )
